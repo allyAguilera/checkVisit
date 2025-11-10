@@ -3,17 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Control de Visitas</title>
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="">
 </head>
 <body>
   <div class="container">
-    <h1>Registro de Visitas</h1>
-    <form id="form-visita">
-      <input type="text" id="nombre" placeholder="Nombre completo" required>
-      <input type="text" id="rut" placeholder="RUT" required>
-      <textarea id="motivo" placeholder="Motivo de la visita" required></textarea>
-      <button type="submit">Registrar</button>
-    </form>
+   
+
+    <section class="card" aria-labelledby="form-title">
+      <h2>Registrar visita</h2>
+
+      <form id="formVisita">
+        <div>
+          <label for="nombre">Nombre del visitante: </label>
+          <input id="nombre" name="nombre" type="text" required placeholder="Ej: Ana Torres">
+        </div>
+
+        <div>
+          <label for="rut">RUT / Documento:</label>
+          <input id="rut" name="rut" type="text" required placeholder="12345678-9">
+        </div>
+
+       <div>
+          <label for="departamentos">Departamentos</label>
+          <input id="departamentos" name="departamentos" type="text" placeholder="Ej: A234">
+        </div>
+
+        <div>
+          <label for="motivo">Motivo</label>
+          <input id="motivo" name="motivo" type="text" placeholder="Ej: Reunión, entrega, visita">
+        </div>
+
+        <div class="full">
+          <label for="observ">Observaciones (opcional)</label>
+          <textarea id="observ" name="observ" placeholder="Opcional"></textarea>
+        </div>
+
+        <div class="full actions">
+          <button type="submit" class="primary small">Registrar visita</button>
+        </div>
+
+        <div id="feedback" class="full"></div>
+      </form>
+    </section>
+
+    
+  </div>
+
   </div>
 </body>
 </html>
