@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Visitas Registradas</title>
-  <link rel="stylesheet" href="css/estilo.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listado de Visitas - CheckVisit</title>
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Listado de Visitas</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>RUT</th>
-          <th>Motivo</th>
-          <th>Fecha</th>
-        </tr>
-      </thead>
-      <tbody id="tabla-visitas">
-        <!-- Aquí se insertan las visitas con JavaScript -->
-      </tbody>
-    </table>
-  </div>
+  <h1>Listado de Visitas </h1>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre Visitante</th>
+        <th>RUT</th>
+        <th>Motivo</th>
+        <th>Departamento</th>
+        <th>Ingreso</th>
+        <th>Salida</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody id="tabla-visitas"></tbody>
+  </table>
+
+  <a href="index.html">← Volver al registro</a>
+
+  <script src="assets/script/listar.js"></script>
 </body>
 </html>

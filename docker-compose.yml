@@ -12,5 +12,22 @@ services:
       - ./db_init/init.sql:/docker-entrypoint-initdb.d/init.sql
       - db_data:/var/lib/postgresql/data
 
+  server:
+    build: ./server
+    restart: always
+    ports:
+      - "5050:5000"
+    depends_on:
+      - db
+
+  backup:
+    build: ./backup
+    environment:
+      PGPASSWORD: 1234567890
+    volumes:
+      - ./backup/backups:/backups
+    depends_on:
+      - db
+
 volumes:
   db_data:

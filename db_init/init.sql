@@ -24,14 +24,26 @@ CREATE TABLE IF NOT EXISTS visitas (
         ON DELETE CASCADE
 );
 
---Para comprobar si esta funcionando la basse de datos en la web
-NSERT INTO departamentos (nombre, encargado)
-VALUES('Depto 101', 'Juan Pérez'),
-('Depto 202', 'Ana Torres'),
-('Depto 303', 'Carlos Díaz');
+-- dejamos ingresado los datos de los departamentos que exiten en nuestro edificio
+-- Departamentos
+INSERT INTO departamentos (nombre, encargado)
+VALUES
+  ('101', 'Carlos Muñoz'),
+  ('102', 'María Gómez'),
+  ('103', 'Ana Torres'),
+  ('104', 'Pedro López'),
+  ('105', 'Lucía Fuentes'),
+  ('106', 'Ricardo Soto'),
+  ('107', 'Fernanda Díaz'),
+  ('108', 'Héctor Silva'),
+  ('109', 'Camila Vargas'),
+  ('110', 'Felipe Rojas'),
+  ('201', 'Andrea Navarro'),
+  ('202', 'Rodrigo Pérez');
 
-
+  
+-- insertamos datos para pruebas 
 INSERT INTO visitas (nombre_visitante, rut, motivo, id_departamento)
 VALUES
-('Luis Rojas', '12345678-9', 'Entrega de encomienda', 1); --!>
+('Luis Rojas', '12345678-9', 'Entrega de encomienda', 1); 
 

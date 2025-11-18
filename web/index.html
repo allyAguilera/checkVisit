@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Control de Visitas</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
   <div class="container">
-   
+
 
     <section class="card" aria-labelledby="form-title">
       <h2>Registrar visita</h2>
@@ -23,10 +25,11 @@
           <input id="rut" name="rut" type="text" required placeholder="12345678-9">
         </div>
 
-       <div>
-          <label for="departamentos">Departamentos</label>
-          <input id="departamentos" name="departamentos" type="text" placeholder="Ej: A234">
+        <div>
+          <label for="departamento">Número de Departamento:</label>
+          <input id="departamento" name="departamento" type="text" required placeholder="Ej: 101">
         </div>
+
 
         <div>
           <label for="motivo">Motivo</label>
@@ -42,13 +45,25 @@
           <button type="submit" class="primary small">Registrar visita</button>
         </div>
 
+        <div class="full actions">
+          <button type="button" class="secondary small" onclick="window.location.href='listar.html'">
+            Ver visitas registradas
+          </button>
+
+        </div>
+
+
+
         <div id="feedback" class="full"></div>
       </form>
     </section>
 
-    
+
   </div>
 
   </div>
+
+  <script src="assets/script/registro.js"></script>
 </body>
+
 </html>
