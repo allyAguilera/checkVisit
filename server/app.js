@@ -5,6 +5,8 @@ import pkg from "pg";
 const { Pool } = pkg;
 
 
+
+
 //  CONFIGURACIÓN DE LA BASE DE DATOS,creamos un pool de conexiones hacia PostgreSQL
 
 const pool = new Pool({
@@ -49,7 +51,7 @@ app.get("/api/visitas", async (req, res) => {
   }
 });
 
-// Crear una nueva visita numero de departamento como text
+// Crear visita numero de departamento como text
 app.post("/api/visitas", async (req, res) => {
   try {
     const { nombre_visitante, rut, motivo, departamento_nombre } = req.body;
@@ -60,7 +62,7 @@ app.post("/api/visitas", async (req, res) => {
       return res.status(400).json({ error: "Faltan campos obligatorios" });
     }
 
-    // Buscar el ID del departamento ej: '101')
+    // Buscar el ID del departamento ej: '101'
     const deptoQuery = await pool.query(
       "SELECT id FROM departamentos WHERE TRIM(nombre) = TRIM($1)",
       [departamento_nombre]
@@ -73,7 +75,7 @@ app.post("/api/visitas", async (req, res) => {
 
     const id_departamento = deptoQuery.rows[0].id;
 
-    // Insertar la nueva visita
+    // Insertar nueva visita
     const result = await pool.query(
       `INSERT INTO visitas (nombre_visitante, rut, motivo, id_departamento)
        VALUES ($1, $2, $3, $4)
@@ -89,7 +91,7 @@ app.post("/api/visitas", async (req, res) => {
   }
 });
 
-// Marcar salida de una visita
+// Marcar salida de visita
 app.put("/api/visitas/:id/salida", async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,7 +110,7 @@ app.put("/api/visitas/:id/salida", async (req, res) => {
   }
 });
 
-// Eliminar una visita
+// Eliminar visita
 app.delete("/api/visitas/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -134,9 +136,23 @@ app.get("/api/departamentos", async (req, res) => {
     res.status(500).json({ error: "Error al obtener los departamentos" });
   }
 });
+
+// test del balanceo
+import os from "os";
+
+app.get("/whoami", (req, res) => {
+  res.json({
+    container: os.hostname(),
+    message: "Balanceo funcionando :3!"
+  });
+});
+
 // INICIO DEL SERVIDOR
 
 const PORT = 5000;
 app.listen(PORT, () => {
-  console.log(`✅ Servidor Node.js corriendo en puerto ${PORT}`);
+  console.log(`Servidor Node.js corriendo en puerto ${PORT}`);
 });
+
+
+

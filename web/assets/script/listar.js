@@ -1,4 +1,5 @@
-const API_URL = "http://localhost:5050/api";
+const API_URL = "http://localhost/api";
+
 const tabla = document.getElementById("tabla-visitas");
 
 async function cargarVisitas() {
