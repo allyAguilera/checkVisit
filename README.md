@@ -37,3 +37,22 @@ estructura de las carpetas:
 <img width="368" height="915" alt="Captura de pantalla 2025-11-21 a la(s) 2 53 13 p m" src="https://github.com/user-attachments/assets/1bc85f46-5f75-4c82-b178-4b086f617a66" />
 
 
+ Para contenedores AMD64  construcción de imágenes :
+
+docker buildx build --platform linux/amd64 \
+  -t checkvisit-server \
+  ./server --load
+
+ NGINX 
+
+docker buildx build --platform linux/amd64 \
+  -t checkvisit-nginx \
+  -f nginx/Dockerfile \
+  . \
+  --load
+
+BACKUP (cron y pg_dump)
+
+docker buildx build --platform linux/amd64 \
+  -t checkvisit-backup \
+  ./backup --load
